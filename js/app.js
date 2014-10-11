@@ -18,3 +18,50 @@ function customMap(array, callback){
 	}
 	return newArray;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 5.
+var findE = function(list, predicate) {
+    for (var i = 0; i < list.length; i++) {
+        if (predicate(list[i]) === true) {
+            return list[i];
+        }
+    }
+    return undefined;
+}
+
+var predicate = function(first) {
+    return first % 2 == 0;
+}
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(findE(arr, predicate));
+// 6.
