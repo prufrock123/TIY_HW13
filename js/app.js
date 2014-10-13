@@ -6,7 +6,7 @@ function customForEach(array, callback) {
         callback(array[i], i, array);
     }
 }
-
+//PUSH?PULL TEST SHAWN
 
 // 2. 
 
@@ -35,61 +35,67 @@ function filter(array hollaback){
 
 }
 
+
 var students = [{
     firstname: "Julie",
     lastname: "Rich",
-    age: "36",
+    age: 36,
     gender: "female"
 }, {
     firstname: "Matt",
     lastname: "Keas",
-    age: "26",
+    age: 26,
     gender: "male"
 }, {
     firstname: "Ken",
     lastname: "McLeod",
-    age: "40",
+    age: 40,
     gender: "male"
 }, {
-    firstname: "Phil",
-    lastname: "Warner",
-    age: "25",
-    gender: "male"
+    firstname: "Melissa",
+    lastname: "Swink",
+    age: 21,
+    gender: "female"
 }, {
     firstname: "Tawfiq",
     lastname: "Momin",
-    age: "32",
+    age: 32,
     gender: "male"
 }, {
-    firstname: "Ryan",
-    lastname: "Mora",
-    age: "35",
+    firstname: "Landon",
+    lastname: "Rich",
+    age: 9,
     gender: "male"
 }, {
     firstname: "Shawn",
     lastname: "Miller",
-    age: "33",
+    age: 33,
     gender: "male"
 }];
-
-function filter(array, test) {
+function forEach(list, callback){
+    for (var i =0, len = list.length; i<len; i++){
+        callback(list[i], i, list);
+    }
+}
+function filter(list, callback) {
   var passed = [];
-  for (var i = 0; i < array.length; i++) {
-    if (test(array[i]))
-      passed.push(array[i]);
-  }
+  forEach(list, function(val, i, arr) {
+    if (callback(val, i, arr)){
+      passed.push(val);
+    }
+  });
   return passed;
 }
 console.log(filter(students, function(person) {
-  return person.age > 30 && person.age < 50;
+  return person.age < 20;
 }));
-function map(array, transform) {
+function map(list, callback) {
   var mapped = [];
-  for (var i = 0; i < array.length; i++)
-    mapped.push(transform(array[i]));
+  forEach(list, function(val, i, arr) {
+    mapped.push(callback(val, i, arr));
+});
   return mapped;
 }
-
 var sub = students.filter(function(person) {
   return person.gender - person.age > 20;
 });
