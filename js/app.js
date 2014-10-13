@@ -18,3 +18,18 @@ function customMap(array, callback){
 	}
 	return newArray;
 }
+
+
+
+function reduce(array, hollaback){ // she ain't not hollaback girl.
+	"use strict";
+	var prev = null;
+	if (array.length === 1){
+		return 
+	}
+
+}
+
+function filter(array hollaback){
+
+}
