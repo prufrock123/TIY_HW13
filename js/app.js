@@ -85,13 +85,34 @@ function customFind(array, callback){
 }
 
 // 6. customWhere function
-function where(array, properties){
+function customWhere(array, properties){
 	"use strict";
 	var emptyArray = [];
 	customForEach(array, function(e, i, array){
-		properties
+		var shouldBeIncluded = true;
+		for(var key in properties){
+			shouldBeIncluded = (properties[key] === e[key]);
+		}
+		if(shouldBeIncluded) emptyArray.push(e)
 	});
+	return emptyArray;
 }
+
+
+// slightly cheating way... :D
+function customWhereAlso(array, key, value){
+	"use strict";
+	var emptyArray = [];
+	customForEach(array, function(e, i, array){
+		if (e[key] === value){
+			emptyArray.push(e)
+		}
+	});
+	return emptyArray;
+};
+
+
+
 
 // Julie's Work
 // 
